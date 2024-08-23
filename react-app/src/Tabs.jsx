@@ -1,46 +1,41 @@
-import React, { useState } from "react";
-import Tap from "./Tap";
+import React from "react";
+import Tab from "./Tab";
 
-function Tabs() {
-  const [activeTap, setAcriveTab] = useState(1);
-  const tabClickHnadler = (tabIndex) => {
-    setAcriveTab(tabIndex);
-  };
+function Tabs({ activeTab, onTabClick }) {
   return (
     <>
       <div className="tabs">
-        <Tap
+        <Tab
           label="Tab 1"
-          onClick={() => tabClickHnadler(1)}
-          isActive={activeTap === 1}
+          onClick={() => onTabClick(1)}
+          isActive={activeTab === 1}
         />
-        <Tap
+        <Tab
           label="Tab 2"
-          onClick={() => tabClickHnadler(2)}
-          isActive={activeTap === 2}
+          onClick={() => onTabClick(2)}
+          isActive={activeTab === 2}
         />
-        <Tap
+        <Tab
           label="Tab 3"
-          onClick={() => tabClickHnadler(3)}
-          isActive={activeTap === 3}
+          onClick={() => onTabClick(3)}
+          isActive={activeTab === 3}
         />
-        <Tap
+        <Tab
           label="Tab 4"
-          onClick={() => tabClickHnadler(4)}
-          isActive={activeTap === 4}
+          onClick={() => onTabClick(4)}
+          isActive={activeTab === 4}
         />
       </div>
       <div className="content">
-        {activeTap === 1 && <div>Content 1</div>}
-        {activeTap === 2 && <div>Content 2</div>}
-        {activeTap === 3 && <div>Content 3</div>}
-        {activeTap === 4 && <div>Content 4</div>}
+        {activeTab === 1 && <div>Content 1</div>}
+        {activeTab === 2 && <div>Content 2</div>}
+        {activeTab === 3 && <div>Content 3</div>}
+        {activeTab === 4 && <div>Content 4</div>}
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut optio,
           magnam iusto dolore error fuga nisi dolor omnis id animi.
         </p>
       </div>
-      <div></div>
     </>
   );
 }
