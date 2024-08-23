@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Tab from "./Tab";
+import Rating from "./Rating";
 
-function Tabs({ activeTab, onTabClick }) {
+const Tabs = ({ activeTab, onTabClick }) => {
+  const [ratings, setRatings] = useState({ 1: 0, 2: 0, 3: 0, 4: 0 });
+
+  const handleRate = (tabIndex, rate) => {
+    setRatings((prevRatings) => ({
+      ...prevRatings,
+      [tabIndex]: rate,
+    }));
+  };
+
   return (
-    <>
+    <div>
       <div className="tabs">
         <Tab
           label="Tab 1"
@@ -27,17 +37,57 @@ function Tabs({ activeTab, onTabClick }) {
         />
       </div>
       <div className="content">
-        {activeTab === 1 && <div>Content 1</div>}
-        {activeTab === 2 && <div>Content 2</div>}
-        {activeTab === 3 && <div>Content 3</div>}
-        {activeTab === 4 && <div>Content 4</div>}
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut optio,
-          magnam iusto dolore error fuga nisi dolor omnis id animi.
-        </p>
+        {activeTab === 1 && (
+          <div>
+            Content 1
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+              nostrum saepe voluptatem sit alias ea eveniet amet laudantium vero
+              voluptates!
+            </p>
+            <Rating onRate={(rate) => handleRate(1, rate)} />
+            <p>Last Rate: {ratings[1]}</p>
+          </div>
+        )}
+        {activeTab === 2 && (
+          <div>
+            Content 2
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+              nostrum saepe voluptatem sit alias ea eveniet amet laudantium vero
+              voluptates!
+            </p>
+            <Rating onRate={(rate) => handleRate(2, rate)} />
+            <p>Last Rate: {ratings[2]}</p>
+          </div>
+        )}
+        {activeTab === 3 && (
+          <div>
+            Content 3
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+              nostrum saepe voluptatem sit alias ea eveniet amet laudantium vero
+              voluptates!
+            </p>
+            <Rating onRate={(rate) => handleRate(3, rate)} />
+            <p>Last Rate: {ratings[3]}</p>
+          </div>
+        )}
+        {activeTab === 4 && (
+          <div>
+            Content 4
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+              nostrum saepe voluptatem sit alias ea eveniet amet laudantium vero
+              voluptates!
+            </p>
+            <Rating onRate={(rate) => handleRate(4, rate)} />
+            <p>Last Rate: {ratings[4]}</p>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default Tabs;
