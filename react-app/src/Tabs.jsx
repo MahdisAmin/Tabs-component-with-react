@@ -16,17 +16,17 @@ function Tabs() {
           isActive={activeTap === 1}
         />
         <Tap
-          label="Tab1"
+          label="Tab2"
           onClick={() => tabClickHnadler(2)}
           isActive={activeTap === 2}
         />
         <Tap
-          label="Tab1"
+          label="Tab3"
           onClick={() => tabClickHnadler(3)}
           isActive={activeTap === 3}
         />
         <Tap
-          label="Tab1"
+          label="Tab4"
           onClick={() => tabClickHnadler(4)}
           isActive={activeTap === 4}
         />
@@ -36,6 +36,12 @@ function Tabs() {
         {activeTap === 2 && <div>Content 2</div>}
         {activeTap === 3 && <div>Content 3</div>}
         {activeTap === 4 && <div>Content 4</div>}
+      </div>
+      <div>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut optio,
+          magnam iusto dolore error fuga nisi dolor omnis id animi.
+        </p>
       </div>
     </>
   );
